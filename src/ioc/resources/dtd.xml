@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//CRAZYIT//DTD//EN" "http://www.crazyit.org/beans.dtd" >
+<beans default-lazy-init="true" default-auto-wire="byName">
+    <!--    设值注入-->
+    <bean id="student" class="ioc.Student" singleton="true" lazy-init="default">
+        <property name="school">
+            <ref bean="school"/>
+        </property>
+        <property name="age">
+            <value type="java.lang.Integer">18</value>
+        </property>
+    </bean>
+    <!--构造注入-->
+    <bean id="student" class="ioc.Student">
+        <constructor-arg>
+            <ref bean="school"/>
+        </constructor-arg>
+    </bean>
+    <bean id="student" class="ioc.Student">
+        <constructor-arg>
+            <value type="java.lang.Integer">20</value>
+        </constructor-arg>
+    </bean>
+    <!--    自动装配-->
+    <bean autowire="byName" id="student" class="ioc.Student"></bean>
+    <bean id="school" class="ioc.School"></bean>
+</beans>
+

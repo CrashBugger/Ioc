@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE beans PUBLIC "-//CRAZYIT//DTD BEAN//EN" "http://www.crazyit.org/beans.dtd">
+<beans default-auto-wire="byName">
+    <!--    test1没有构造参数-->
+    <bean class="ioc.test.TestObject1" id="test1"/>
+    <bean singleton="false" id="test3" class="ioc.test.TestObject1"/>
+    <!--    test构造注入-->
+    <bean class="ioc.test.TestObject2" id="test2">
+        <constructor-arg>
+            <value type="java.lang.String">name_n</value>
+        </constructor-arg>
+        <constructor-arg>
+            <value type="java.lang.Integer">23</value>
+        </constructor-arg>
+        <constructor-arg>
+            <ref bean="test1"/>
+        </constructor-arg>
+    </bean>
+    <!--    test4使用名字自动装配-->
+    <bean id="object1" class="ioc.test.TestObject1" singleton="true"/>
+    <bean id="test4" class="ioc.test.TestObject3" autowire="byName"/>
+</beans>

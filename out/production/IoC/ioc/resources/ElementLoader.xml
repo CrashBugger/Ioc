@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE beans PUBLIC "-//CRAZYIT//DTD BEAN//EN" "http://www.crazyit.org/beans.dtd">
+<beans>
+    <bean id="test1" class="ioc.test.TestObject1" lazy-init="true"/>
+    <bean id="test2" class="ioc.test.TestObject1" lazy-init="true"/>
+</beans>
